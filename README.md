@@ -4,6 +4,7 @@ Tener descargado en tu ordenador MongoDB Community Server, puedes descargarlo ne
 En la consola del backend ejecutamos los siguientes comandos:
 - npm i.
 - node server.js.
+</br>
 En la consola del frontend ejecutamos los siguientes comandos:
 - npm i
 - ng serve --port 8081
