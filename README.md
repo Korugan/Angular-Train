@@ -7,8 +7,9 @@ En la consola del backend ejecutamos los siguientes comandos:
 - node server.js.
 <br />
 En la consola del frontend ejecutamos los siguientes comandos:
+<br />
 - npm i
 - ng serve --port 8081
-
+<br />
 Nos dirijimos a http://localhost:8081 
 Nos creamos de una cuenta de usuario y podemos ver el contenido de usuario.
