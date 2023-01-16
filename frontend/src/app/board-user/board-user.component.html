@@ -1,0 +1,92 @@
+<div class="container">
+  <header *ngIf="!isLogged">
+    <p>{{ content }}</p>
+  </header>
+  <div class="tables" *ngIf="isLogged">
+    <div class="ftable">
+      <h2 class="mb-3">Listado clientes</h2>
+      <div class="check-container">
+        <input
+          type="checkbox"
+          id="dropcheck"
+          role="button"
+          class="mr-1 switch"
+          (change)="checkChange($event)"
+        />
+        <label
+          for="dropcheck"
+          class="fake-check"
+          [ngClass]="{ active: check }"
+        ></label>
+        <label for="dropcheck" role="button" class="fake-label">
+          Vista de Dropdown</label
+        >
+      </div>
+      <div *ngIf="check">
+        <div class="arrow">
+          <select
+            class="custom-select"
+            aria-label="Default select example"
+            value="{{ clientSelected }}"
+            (change)="clientDetailsDropDown($event)"
+          >
+            <option *ngFor="let client of clients" value="{{ client.id }}">
+              {{ client.id }} - {{ client.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <table *ngIf="!check" class="clientlist">
+        <thead>
+          <tr>
+            <th class="clientlistid">Id</th>
+            <th class="clientlistname">Nombre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td class="clientlistid">{{ client.id }}</td>
+            <td
+              class="clientlistname clickable"
+              (click)="clientDetails(client.id)"
+              [ngClass]="{ active: client.id === clientSelected }"
+            >
+              {{ client.name }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="loading" class="loader"></div>
+    </div>
+    <div class="ftable">
+      <h2 class="mb">Detalle del cliente</h2>
+      <div class="loader-container">
+        <div *ngIf="isLoading" class="loader"></div>
+      </div>
+      <div *ngIf="showClient">
+        <table class="detailclientlist">
+          <thead class="detailclientlisthead">
+            <th class="detailclientlistitem">Fecha de registro:</th>
+            <th class="detailclientlistitem">Nombre</th>
+            <th class="detailclientlistitem">Apellido:</th>
+            <th class="detailclientlistitem">Empresa</th>
+            <th class="detailclientlistitem">Email</th>
+            <th class="detailclientlistitem">Ciudad</th>
+            <th class="detailclientlistitem">Direccion</th>
+            <th class="detailclientlistitem">CP</th>
+          </thead>
+          <tbody class="detailclientlistbody">
+            <td class="detailclientlistitem">{{ clientDetail.createdAt }}</td>
+            <td class="detailclientlistitem">{{ clientDetail.name }}</td>
+            <td class="detailclientlistitem">{{ clientDetail.lastname }}</td>
+            <td class="detailclientlistitem">{{ clientDetail.company }}</td>
+            <td class="detailclientlistitem">{{ clientDetail.email }}</td>
+            <td class="detailclientlistitem">{{ clientDetail.city }}</td>
+            <td class="detailclientlistitem">{{ clientDetail.address }}</td>
+            <td class="detailclientlistitem">{{ clientDetail.cp }}</td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
