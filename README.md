@@ -1,6 +1,6 @@
 # angular-train
 Para desplegar el proyecto en local hace falta lo siguiente:
-Tener descargado en tu ordenador MongoDB Community Server, puedes descargarlo nediante el siguiente enlace: https://www.mongodb.com/try/download/community 
+Tener descargado en tu ordenador MongoDB Community Server, puedes descargarlo mediante el siguiente enlace: https://www.mongodb.com/try/download/community 
 <br />
 En la consola del backend ejecutamos los siguientes comandos:
 <ul>
